@@ -13,6 +13,12 @@ function getComputerChoice() {
     return CHOICES[Math.floor(Math.random() * 3)];
 }
 
+function displayComputerChoice(computerChoice) {
+  if (computerChoice === 'rock') cpuChoice.textContent = 'Computers choice: ✊';
+  else if (computerChoice === 'paper') cpuChoice.textContent = 'Computers choice: ✋';
+  else if (computerChoice === 'scissors') cpuChoice.textContent = 'Computers choice: ✌️';
+}
+
 function playRound(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
       return 'tie';
@@ -42,6 +48,8 @@ rock.addEventListener('click', () => {
   let computerChoice = getComputerChoice();
   let playerChoice = CHOICES[0];
 
+  displayComputerChoice(computerChoice);
+
   let result = playRound(playerChoice, computerChoice);
 
   logScore(result);
@@ -50,6 +58,8 @@ rock.addEventListener('click', () => {
 paper.addEventListener('click', () => {
   let computerChoice = getComputerChoice();
   let playerChoice = CHOICES[1];
+
+  displayComputerChoice(computerChoice);
 
   let result = playRound(playerChoice, computerChoice);
 
@@ -60,6 +70,8 @@ scissors.addEventListener('click', () => {
   let computerChoice = getComputerChoice();
   let playerChoice = CHOICES[2];
 
+  displayComputerChoice(computerChoice);
+  
   let result = playRound(playerChoice, computerChoice);
 
   logScore(result);
