@@ -8,15 +8,16 @@ const scissors = document.querySelector('#scissors');
 const playerScoreBoard = document.querySelector('#playerScoreBoard');
 const computerScoreBoard = document.querySelector('#computerScoreBoard');
 const cpuChoice = document.querySelector('#cpuChoice');
+const writeResult = document.querySelector('#writeResult');
 
 function getComputerChoice() {
     return CHOICES[Math.floor(Math.random() * 3)];
 }
 
 function displayComputerChoice(computerChoice) {
-  if (computerChoice === 'rock') cpuChoice.textContent = 'Computers choice: ✊';
-  else if (computerChoice === 'paper') cpuChoice.textContent = 'Computers choice: ✋';
-  else if (computerChoice === 'scissors') cpuChoice.textContent = 'Computers choice: ✌️';
+  if (computerChoice === 'rock') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✊</span>';
+  else if (computerChoice === 'paper') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✋</span>';
+  else if (computerChoice === 'scissors') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✌️</span>';
 }
 
 function playRound(playerChoice, computerChoice) {
@@ -36,43 +37,32 @@ function playRound(playerChoice, computerChoice) {
 function logScore(result) {
   if (result === "player") {
     playerScore ++;
-    playerScoreBoard.textContent = "Player: " + playerScore;
+    playerScoreBoard.textContent = "Player : " + playerScore;
   }
   if (result === "computer") {
     computerScore ++;
-    computerScoreBoard.textContent = "Computer: " + computerScore;
+    computerScoreBoard.textContent = "Computer : " + computerScore;
   }
 }
 
-rock.addEventListener('click', () => {
+function wholeRound(playerChoice) {
   let computerChoice = getComputerChoice();
-  let playerChoice = CHOICES[0];
 
   displayComputerChoice(computerChoice);
 
   let result = playRound(playerChoice, computerChoice);
 
   logScore(result);
+}
+
+rock.addEventListener('click', () => {
+  wholeRound(CHOICES[0]);
 })
 
 paper.addEventListener('click', () => {
-  let computerChoice = getComputerChoice();
-  let playerChoice = CHOICES[1];
-
-  displayComputerChoice(computerChoice);
-
-  let result = playRound(playerChoice, computerChoice);
-
-  logScore(result);
+  wholeRound(CHOICES[1]);
 })
 
 scissors.addEventListener('click', () => {
-  let computerChoice = getComputerChoice();
-  let playerChoice = CHOICES[2];
-
-  displayComputerChoice(computerChoice);
-  
-  let result = playRound(playerChoice, computerChoice);
-
-  logScore(result);
+  wholeRound(CHOICES[2]);
 })
