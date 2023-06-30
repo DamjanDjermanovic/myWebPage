@@ -45,6 +45,13 @@ function logScore(result) {
   }
 }
 
+function displayResult (result) {
+  writeResult.classList.remove('hide');
+  if (result === "player") writeResult.textContent = "You won!";
+  else if (result === "computer") writeResult.textContent = "You lost.";
+  else writeResult.textContent = "Tie Game!"
+}
+
 function wholeRound(playerChoice) {
   let computerChoice = getComputerChoice();
 
@@ -53,6 +60,8 @@ function wholeRound(playerChoice) {
   let result = playRound(playerChoice, computerChoice);
 
   logScore(result);
+
+  displayResult(result);
 }
 
 rock.addEventListener('click', () => {
