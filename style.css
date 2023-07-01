@@ -46,7 +46,7 @@ nav {
     width: 600px;
 }
 
-.buttons {
+.rpsButtons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,7 +65,8 @@ nav {
     padding: 6px 12px;
 }
 
-.btn.rps {
+.btn.rps,
+.btn.eas {
     width: 160px;
     height: 42px;
     font-size: 19px;
@@ -74,7 +75,8 @@ nav {
     border: solid 2px black;
 }
 
-.btn.rps:hover {
+.btn.rps:hover,
+.btn.eas:hover {
     background-image: linear-gradient(to right, #0d6efd, purple);
     border: none;
     transform: scale(1.03);
@@ -96,4 +98,36 @@ nav {
 
 #writeResult {
     font-size: 22px;
+}
+
+.centerContainer.eas {
+    align-items: center;
+}
+
+#etchAGrid {
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.etchARow {
+    flex-direction: row;
+    justify-content: stretch;
+    flex: 1 1 auto;
+}
+
+.etchASquare {
+    padding: none;
+    flex: 1 1 auto;
+}
+
+.colored {
+    background-color: black;
+}
+
+.easButtons {
+    justify-content: space-around;
 }
