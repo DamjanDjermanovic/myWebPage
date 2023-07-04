@@ -19,8 +19,8 @@ function fillEtchAGrid(size) {
             const square = document.createElement('div');
             square.classList.add('etchASquare');
             row.appendChild(square);
-    
-            square.addEventListener('mouseenter', (event) => {
+
+            square.addEventListener('mouseenter', () => {
                 square.classList.add('colored');
             })
         }
@@ -45,4 +45,13 @@ rangeInput.addEventListener('change' , (event) => {
 confirm.addEventListener('click', (event) => {
     grid.innerHTML = "<sh></sh>";
     fillEtchAGrid(rangeInput.value);
+})
+
+eraser.addEventListener('click', (event) => {
+    const squares = document.querySelectorAll('.etchASquare');
+    squares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            square.classList.remove('colored');
+        })
+    })
 })

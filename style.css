@@ -186,3 +186,19 @@ input[type="range"].form-range::-ms-thumb {
 input[type="range"].form-range::-webkit-slider-runnable-track {
     background-color: black;
 }
+
+.color-picker-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #colorPickerButton {
+    margin-right: 10px;
+  }
+  
+  #colorPicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  
