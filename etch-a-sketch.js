@@ -2,8 +2,15 @@ const grid = document.querySelector('#etchAGrid');
 const size = document.querySelector('#size');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
+const rangeInput = document.querySelector('#range');
+const label = document.querySelector('.form-label');
+const confirm = document.querySelector('#confirm');
 
-function fillEtchAGrid(size = 16) {
+document.addEventListener('DOMContentLoaded', () => {
+    fillEtchAGrid(16);
+})
+
+function fillEtchAGrid(size) {
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.classList.add('etchARow');
@@ -20,15 +27,22 @@ function fillEtchAGrid(size = 16) {
     }
 }
 
-fillEtchAGrid();
-
-clear.addEventListener('click', (event) => {
+function clearEtchAGrid() {
     const squares = document.querySelectorAll('.etchASquare');
     squares.forEach((square) => {
         square.classList.remove('colored');
     })
+}
+
+clear.addEventListener('click', (event) => {
+    clearEtchAGrid();
 })
 
-size.addEventListener('click', (event) => {
-    
+rangeInput.addEventListener('change' , (event) => {
+    label.textContent = rangeInput.value + 'x' + rangeInput.value;
+})
+
+confirm.addEventListener('click', (event) => {
+    grid.innerHTML = "<sh></sh>";
+    fillEtchAGrid(rangeInput.value);
 })

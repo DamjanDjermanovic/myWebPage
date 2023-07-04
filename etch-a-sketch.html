@@ -25,7 +25,7 @@
         </ul>
     </nav>
     <div class="centerContainer eas">
-      <div id="etchAGrid"></div>
+      <div id="etchAGrid"><sh></sh></div>
       <div class="easButtons">
         <button type="button" class="btn eas btn-outline-primary" id="eraser">Eraser</button>
         <button type="button" class="btn eas btn-outline-primary" id="clear">Clear</button>
@@ -38,12 +38,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <label for="customRange3" class="form-label">16x16</label>
-                <input type="range" class="form-range" min="16" max="100" step="1" id="customRange3">
+                <label for="range" class="form-label">16x16</label>
+                <input type="range" class="form-range" min="1" max="100" step="1" id="range">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn eas btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn eas btn-outline-primary">Confirm</button>
+                <button type="button" class="btn eas btn-outline-primary" data-bs-dismiss="modal" id="confirm">Confirm</button>
               </div>
             </div>
           </div>
