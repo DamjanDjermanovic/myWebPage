@@ -52,36 +52,33 @@ function fillEtchAGrid(size) {
     }
 }
 
+function selectSquares() {
+    return squares = document.querySelectorAll('.etchASquare');
+}
+
 function clearEtchAGrid() {
-    const squares = document.querySelectorAll('.etchASquare');
-    squares.forEach((square) => {
+    selectSquares().forEach((square) => {
         square.classList.remove('colored');
     })
 }
 
-clear.addEventListener('click', (event) => {
-    clearEtchAGrid();
-})
+clear.onclick = () => clearEtchAGrid();
 
-rangeInput.addEventListener('change' , (event) => {
-    label.textContent = rangeInput.value + 'x' + rangeInput.value;
-})
+rangeInput.onchange = () => label.textContent = rangeInput.value + 'x' + rangeInput.value;
 
-confirm.addEventListener('click', (event) => {
+confirm.onclick = () => {
     grid.innerHTML = "<sh></sh>";
     fillEtchAGrid(rangeInput.value);
-})
+}
 
-pen.addEventListener('click', (event) => {
-    const squares = document.querySelectorAll('.etchASquare');
-    squares.forEach((square) => {
+pen.onclick = () => {
+    selectSquares().forEach((square) => {
         draw(square);
     })
-})
+}
 
-eraser.addEventListener('click', (event) => {
-    const squares = document.querySelectorAll('.etchASquare');
-    squares.forEach((square) => {
+eraser.onclick = () => {
+    selectSquares().forEach((square) => {
         erase(square);
     })
-})
+}
