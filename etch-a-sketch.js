@@ -15,28 +15,6 @@ document.addEventListener('dragstart', (event) => {
     event.preventDefault();
 });
 
-function draw(square) {
-    square.addEventListener('mouseenter', handleMouseEnterAndClick);
-    square.addEventListener('mousedown', handleMouseEnterAndClick);
-
-    function handleMouseEnterAndClick(event) {
-        if (event.type === 'mouseenter' && event.buttons === 1) {
-            square.classList.add('colored');
-        }
-    }
-}
-
-function erase(square) {
-    square.addEventListener('mouseenter', handleMouseEnterAndClick);
-    square.addEventListener('mousedown', handleMouseEnterAndClick);
-
-    function handleMouseEnterAndClick(event) {
-        if (event.type === 'mouseenter' && event.buttons === 1) {
-            square.classList.remove('colored');
-        }
-    }
-}
-
 function fillEtchAGrid(size) {
     for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
@@ -47,7 +25,19 @@ function fillEtchAGrid(size) {
             square.classList.add('etchASquare');
             row.appendChild(square);
 
-            draw(square);
+            drawOrErase(square, "draw");
+        }
+    }
+}
+
+function drawOrErase(square, action) {
+    square.addEventListener('mouseover', handleMouseOverAndClick);
+    square.addEventListener('mousedown', handleMouseOverAndClick);
+
+    function handleMouseOverAndClick(event) {
+        if (event.type === 'mouseover' && event.buttons === 1) {
+            if (action === 'draw') square.classList.add('colored');
+            else if (action === 'erase') square.classList.remove('colored');
         }
     }
 }
@@ -73,12 +63,12 @@ confirm.onclick = () => {
 
 pen.onclick = () => {
     selectSquares().forEach((square) => {
-        draw(square);
+        drawOrErase(square, "draw");
     })
 }
 
 eraser.onclick = () => {
     selectSquares().forEach((square) => {
-        erase(square);
+        drawOrErase(square, "erase");
     })
 }
