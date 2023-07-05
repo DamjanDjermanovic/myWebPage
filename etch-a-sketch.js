@@ -35,7 +35,7 @@ function drawOrErase(square, action) {
     square.addEventListener('mousedown', handleMouseOverAndClick);
 
     function handleMouseOverAndClick(event) {
-        if (event.type === 'mouseover' && event.buttons === 1) {
+        if ((event.type === 'mouseover' && event.buttons === 1) || event.type === 'mousedown') {
             if (action === 'draw') square.classList.add('colored');
             else if (action === 'erase') square.classList.remove('colored');
         }
