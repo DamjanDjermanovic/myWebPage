@@ -1,7 +1,8 @@
 const grid = document.querySelector('#etchAGrid');
-const size = document.querySelector('#size');
+const pen = document.querySelector('#pen');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
+const size = document.querySelector('#size');
 const rangeInput = document.querySelector('#range');
 const label = document.querySelector('.form-label');
 const confirm = document.querySelector('#confirm');
@@ -9,6 +10,32 @@ const confirm = document.querySelector('#confirm');
 document.addEventListener('DOMContentLoaded', () => {
     fillEtchAGrid(16);
 })
+
+document.addEventListener('dragstart', (event) => {
+    event.preventDefault();
+});
+
+function draw(square) {
+    square.addEventListener('mouseenter', handleMouseEnterAndClick);
+    square.addEventListener('mousedown', handleMouseEnterAndClick);
+
+    function handleMouseEnterAndClick(event) {
+        if (event.type === 'mouseenter' && event.buttons === 1) {
+            square.classList.add('colored');
+        }
+    }
+}
+
+function erase(square) {
+    square.addEventListener('mouseenter', handleMouseEnterAndClick);
+    square.addEventListener('mousedown', handleMouseEnterAndClick);
+
+    function handleMouseEnterAndClick(event) {
+        if (event.type === 'mouseenter' && event.buttons === 1) {
+            square.classList.remove('colored');
+        }
+    }
+}
 
 function fillEtchAGrid(size) {
     for (let i = 0; i < size; i++) {
@@ -20,9 +47,7 @@ function fillEtchAGrid(size) {
             square.classList.add('etchASquare');
             row.appendChild(square);
 
-            square.addEventListener('mouseenter', () => {
-                square.classList.add('colored');
-            })
+            draw(square);
         }
     }
 }
@@ -47,11 +72,16 @@ confirm.addEventListener('click', (event) => {
     fillEtchAGrid(rangeInput.value);
 })
 
+pen.addEventListener('click', (event) => {
+    const squares = document.querySelectorAll('.etchASquare');
+    squares.forEach((square) => {
+        draw(square);
+    })
+})
+
 eraser.addEventListener('click', (event) => {
     const squares = document.querySelectorAll('.etchASquare');
     squares.forEach((square) => {
-        square.addEventListener('mouseenter', () => {
-            square.classList.remove('colored');
-        })
+        erase(square);
     })
 })
