@@ -10,7 +10,7 @@ div {
     display: flex;
 }
 
-.nameHighlight,
+.highlight,
 a.nav-link:hover,
 a.nav-link#active {
     color: transparent;
@@ -34,6 +34,7 @@ nav {
     top: 0;
     width: 100%;
     font-size: 22px;
+    background-color: white;
 }
 
 .centerContainer {
@@ -187,18 +188,34 @@ input[type="range"].form-range::-webkit-slider-runnable-track {
     background-color: black;
 }
 
-.color-picker-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  #colorPickerButton {
-    margin-right: 10px;
-  }
-  
-  #colorPicker {
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-  
+body#my-journey {
+    height: auto;
+    overflow-x: hidden;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.imageSection {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.textContainer {
+    flex-direction: column;
+}
+
+p {
+    width: 512px;
+}
+
+#odin {
+    flex-direction: column;
+    justify-content: center;
+}
