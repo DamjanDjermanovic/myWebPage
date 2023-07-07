@@ -15,9 +15,9 @@ function getComputerChoice() {
 }
 
 function displayComputerChoice(computerChoice) {
-  if (computerChoice === 'rock') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✊</span>';
-  else if (computerChoice === 'paper') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✋</span>';
-  else if (computerChoice === 'scissors') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan">✌️</span>';
+  if (computerChoice === 'rock') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan highlight">✊</span>';
+  else if (computerChoice === 'paper') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan highlight">✋</span>';
+  else if (computerChoice === 'scissors') cpuChoice.innerHTML = 'Computer\'s choice : <span class="fixSpan highlight">✌️</span>';
 }
 
 function playRound(playerChoice, computerChoice) {
