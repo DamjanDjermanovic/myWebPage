@@ -41,6 +41,7 @@ h2 {
 }
 
 nav {
+    z-index: 9999;
     padding: 8px;
     position: fixed;
     top: 0;
@@ -220,7 +221,6 @@ section {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    min-width: 100vw;
 }
 
 .imageSection {
@@ -230,6 +230,10 @@ section {
 
 .textContainer {
     flex-direction: column;
+}
+
+.imageSection img {
+    margin: 15px;
 }
 
 .imageSection p {
@@ -279,3 +283,17 @@ footer p {
     margin-top: 10px;
     height: 150px;
 }
+
+.hidden {
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(5px);
+    transform: translateY(50%);
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
